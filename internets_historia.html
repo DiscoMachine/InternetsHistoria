@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<!-- Author: Jamie Mabon, May 2021-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Information om Internet</title>
+    <link href="https://fonts.googleapis.com/css?family=Smythe" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        const clack = new Audio('assets/typewriter.mp3');
+
+        /**
+         * @param s {String}
+         */
+        function capitalize(s) {
+            return s.substr(0, 1).toUpperCase() + s.substr(1).toLowerCase();
+        }
+
+        /**
+         * @param idName {String}
+         */
+        function tabSwap(idName) {
+            clearTimeout();
+            clack.play();
+            Array.from(document.getElementsByClassName("show")).forEach(t => t.classList.add('fade-out'));
+            setTimeout(() => {
+                Array.from(document.getElementsByClassName("fade-out")).forEach(t => t.classList.remove('fade-out'));
+                Array.from(document.getElementsByClassName("tab")).forEach(t => t.classList.remove('show'));
+                document.getElementById(idName).classList.add('show');
+            }, 1000);
+            history.pushState({}, capitalize(idName), '#' + idName);
+        }
+
+        window.onscroll = () => {
+            const e = document.getElementsByClassName("back-up")[0];
+            if (window.pageYOffset <= 30) {
+                e.classList.add('hide');
+            } else {
+                e.classList.remove('hide');
+            }
+        };
+    </script>
+    <div id="top"></div>
+    <div class="wrapper">
+        <br />
+        <div class="title">
+            <div class="fixed-title-1">
+                Jamie Mabons Encyklopedi
+            </div>
+            <div class="logo-1"></div>
+            <div class="fixed-title-2">
+                Information om Internet
+            </div>
+        </div>
+        <br />
+        <div class="line"></div>
+        <div class="bar">
+            <div class="bar-link" onclick="tabSwap('historia')">Historia</div>
+            <div class="bar-link" onclick="tabSwap('samhallspaverkan')">Samhällspåverkan</div>
+            <div class="bar-link" onclick="tabSwap('framtiden')">Framtiden</div>
+            <div class="bar-link" onclick="tabSwap('lagar')">Lagar</div>
+            <div class="bar-link" onclick="tabSwap('ommig')">Om mig</div>
+        </div>
+        <div class="line"></div>
+
+        <!-- Tabar växlar mellan display:none och display:block beroende på navbar click events. -->
+        <div class="tabs">
+            <div class="tab show" id="historia">
+                <h2>Historia</h2>
+                <p>
+                    Att definera precis när internet först skappades är mycket svårt eftersom att det
+                    rör sig om en definitions fråga. Med internet, menar man TCP/IP protocolet?
+                    Menar man w3c standarden? Menar kopplingarna mellan serverna och routrar?
+                    De flesta brukar hålla med om att internet först skappades var när
+                    några universitets datorer kopplades ihopp för att bilda ett nätverk som blev
+                    kännt som ARPANET (The Advanced Research Projects Agency). Netverket byggde på en ny
+                    teknologi (ett protokol) som hätte TCP/IP. TCP/IP används för att skicka data mellan datorer
+                    i ett nätverk.
+                </p>
+                <p>
+                    I början var det för dyrt för vanligt folk att ha en koppling till "internet". Endast studenter
+                    och akademiker hade tillgång till en internet uppkoppling. Men vanligt folk brydde sig nog inte så
+                    mycket om det eftersom det inte fanns något för vanligt folk att göra på internet. Saker som E-mejl,
+                    FaceBook,
+                    YouTube och Google skulle skapas mycket senare.
+                </p>
+                <p>
+                    År 1990 skapades den första web clienten och web server, så kallad, WorldWideWeb (senare kallad
+                    Nexus) för
+                    NeXT datorerna. Men dessa verktyg var fortfarande för komplicerade för den vanliga användaren.
+                    Just därför skapades en ny web "läsare", kallad Netscape av Marc Andersson, som var enklare att
+                    installera och
+                    använda. Denna nya program skulle i sin tur skapa en era av infomration.
+                </p>
+                <p>
+                    Mellan 1993 och 2018 har internet inte förändrats särskilt mycket. Microsoft hade ett krig med
+                    Netscape över dominans över internet. Google skapdes år 1998 och gjorde det mycket enklae att hitta
+                    och söka efter
+                    information på www. Till slut bestämde sig Google för att de också skulle göra web läsare. Plötsligt
+                    fanns
+                    fler tal olika webläsare, och alla behövde en standard. Just därför skapades w3c standarden.
+                    JavaScript
+                    skapades år 1995 för att lägga till extra funktionalitet till hemsidor utan att behöva lämna sidan
+                    för att se ändringarna.
+                </p>
+                <p>
+                    År 2007 introducerade Apple sin nya mobiltelefon, iPhonen. Denna telefon
+                    använde touchscreen istället för knappar och var mycket enkel att använda.
+                    Detta ledde till att ytterligare en ny våg användare. Dessa användare var inte lika tekniskt
+                    kompetenta som de tidigare vågorna hade varit. Detta ledde till att mycket av webben behövde
+                    uppgraderas. Nya standarder behövde skrivas. Alla dessa ändringar lades till HTML5 standarden.
+                    Ett exempel på en förbättring är media (video, audio) mellan HTML4 och HTML5. Där HTML4s video
+                    spelare var inte standardiserad.
+                </p>
+                <div class="decoration-1"></div>
+                <h1>Några nya web teknolgier</h1>
+                <ul>
+                    <li>JavaScript (netscape)</li>
+                    <li><a href="https://webrtc.org/" class="red">WebRTC (2011)</a></li>
+                    <li>HTTPS (1994, netscape, bygger på SSL och TLS)</li>
+                    <li><a href="https://webassembly.org/" class="red">WebAssembly (ska ersätta JavaScript när man gör
+                            tyngre beräkningar)</a></li>
+                    <li>WebGL (baserat på OpenGL 2)</li>
+                </ul>
+            </div>
+            <div class="tab" id="samhallspaverkan">
+                <h2>Samhällspåverkan</h2>
+                <p>
+                    Internet har påverakt vårat samhälle på många sätt. Först och främst har det aldrig varit enklare
+                    att hitta information.
+                    Alla människor med internet har tillgång till den största encylopedian i världen genom att endast
+                    trycka på några få tal knappar.
+                    Saker som Skype och Discord har gjort det möjligt för folk att prata länge och långt ifrån utan
+                    några problem till skillnad från
+                    telefoni.
+                </p>
+                <p>
+                    Internet har även startat en trend av att beänkningar flyttas från den lokala datorn till servern,
+                    eller "the cloud" vilket är
+                    de nya termen för detta phenomen. Visa ser detta som något posetivt, en ny gyllene tid av
+                    komputation, medans andra
+                    är mer skeptiska och anser att det endast har gjort det enklare för stora företag att spionera för
+                    sina anledningar.
+                </p>
+                <p>
+                    Internet har även på vissa sätt gjort oss närmare varandra. Appar och tjänster som FaceBook,
+                    Instagram, Snapchat
+                    motiverar oss att lägga upp coola (eller ocoola) saker från våra liv. Visa psykologer (och Elon
+                    Musk) anser att detta har en
+                    dålig samhallspåverkan eftersom att allt går igenom ett sorts filter; vi lägger endast fram de bra
+                    delarna av våra liv och
+                    aldrig de sämre delarna av våra liv. Detta får folk att tro att de är de enda som har det svårt i
+                    livet, men detta är
+                    självklart inte sannt, nästa alla har problem då och då.
+                </p>
+                <p>
+                    Internet har även lett till ett ökat internationelt sammarbete; vilket var hela målet från första
+                    början med internet.
+                    D.V.S att universitet skulle kunna kommunicera med varrandra och dela på upptäckter mycket snabbare
+                    än vanligt. Just på grund av
+                    detta så skappades E-mejl ungefär år 1960 av Ray Tomilson. Innan E-mejl så behövde man skicka brev.
+                    Detta
+                    var en enorm flaskhals (bottleneck) för den vetenskapliga världen.
+                </p>
+            </div>
+            <div class="tab" id="framtiden">
+                <h2>Framtiden</h2>
+                Jag anser att fyra saker kommer att hända de närmaste 10 till 20 åren.
+                <ol>
+                    <li>
+                        WebAssembly kommer att bli det dominanta sättet som sidor är kådade i. WebAssembly kan köra
+                        mycket snabbare än
+                        JavaScript och tar upp mycket mindre utryme vilket leder till att hemsidor laddas snabbare.
+                        Detta har börjat hända.
+                    </li>
+                    <li>
+                        PHP och server-side rendering av hemsidor kommer att dö ut. Servrarna kommer att bli dummare och
+                        dummare medans
+                        web klienterna kommer att innehålla mer och mer funktionlitet. Det håller redan på att hända.
+                        Webserverns ända uppgift kommer
+                        vara att leverera WebAssembly kåden och hantera API anrop som oftast pratar med en databas.
+                    </li>
+                    <li>
+                        Nyare sätt att kommunicera med datorn upptäcks som get oss ökad bredbrand mellan människa och
+                        dator. Detta kommmer ge oss
+                        möjligheten att ta in mer information men vikitigaste av allt, ge mer information, snabbare.
+                    </li>
+                    <li>
+                        Internet blir 3D. För att kunna maximera den mänskliga upplevelsen måste internet bli en sorts
+                        virtuell värld.
+                        Just däför kommer allt fler och flet sidor skapas med VR kompatabilitet.
+                    </li>
+                </ol>
+                <br>
+                Lite källor:
+                <br />
+                <a href="https://sv.wikipedia.org/wiki/E-post">wikipedia.org</a><br />
+                <a href="http://historycooperative.org/the-history-of-the-iphone/">historycooperative.org</a>
+            </div>
+        </div>
+        <div class="tab" id="lagar">
+            <h2>Lagar</h2>
+            <p>
+                Det finns en hel del lagar gällande vad hemsidor får spara för information om sina besökare, speciellt inom EU där det finns flera krav som sätts på hemsidor. Vidare kan de följande punkterna agera som en guide för vad som måste göras om du har en hemsida.
+            </p>
+            <ul>
+                <li>Man måste ha stöd i dataskyddsförordningen för att ens få behandla uppgifter</li>
+                <li>Man får endast samla personuppgifter för specifika, förtydligade och legitima ändamål</li>
+                <li>Man får inte behandla fler personuppgifter än nödvändiga för ändamålet</li>
+                <li>Man ska se till att personuppgifterna är riktiga</li>
+                <li>Man ska radera personuppgifterna när de inte längre behövs</li>
+                <li>Man ska skydda personuppgifterna, så obehöriga ej får tillgång och så de ej förloras.</li>
+                <li>Man ska kunna visa att man lever upp till kraven och på vilket sätt det görs.</li>
+            </ul>
+            <p>
+                Ett exempel av hur detta appliceras är följande. Man får endast samla in personuppgifter för specifika, förtydligade och legitima ändamål, det betyder alltså att man inte får samla onödig information, som är omotiverad och inte förtydligas. Om jag till exempel vill spela jackpot online måste hemsidan samla min ålder (sedan följa en annan punkt då de måste se till att personuppgifterna är riktiga) med en prompt där jag ska kunna förstå varför dem gör det och att den informationen kan lagras. De får däremot inte spara annan information om mig som min sexuella läggning osv. då det inte stämmer överens med deras ändamål av en säker och laglig hemsida. Om jag vid senare tillfälle vill radera mitt konto så är det obligatoriskt för hemsidan att radera all information som finns lagrad om mig, då de inte längre behövs. I mitt fall, med denna hemsida, behöver jag inte anpassa mig efter dessa då jag inte samlar in cookies eller personuppgifter.
+            </p>
+        </div>
+        <div class="tab" id="ommig">
+            <div>
+                <h2>Om Mig</h2>
+                <p>
+                    Hej! Jag heter Jamie Mabon och är utvecklaren bakom denna hemsida men också författare för dessa
+                    artiklar.
+                    Jag läser teknik på IT College of Sweden där en av mina kurser är webbutveckling, det är därför jag
+                    skapade denna hemsida.
+                    Under årets gång har jag lärt mig mycket praktiskt och det kan man se i hur denna hemsida är
+                    uppbyggd.
+                    Utöver det har jag också lärt mig mycket teoretiskt och det är baserat på det som jag kunnat skriva
+                    om internet på denna sida.
+                </p>
+            </div>
+            <img src="assets/me.jpg" alt="A picture of me" class="mepic">
+        </div>
+        <!-- Hörndekorationer -->
+        <div class="corner corner-1"></div>
+        <div class="corner corner-2"></div>
+        <div class="corner corner-3"></div>
+        <div class="corner corner-4"></div>
+        <div class="back-up"><a href="#top">&#x21E7;</a></div>
+    </div>
+</body>
+
+</html>
